@@ -43,12 +43,14 @@ public class SignupActivity extends BaseActivity {
             mAuth .createUserWithEmailAndPassword(email,password).addOnCompleteListener(SignupActivity.this, task -> {
                 if(task.isSuccessful()){
                     Log.i(TAG, "onComplete: ");
-                    startActivity(new Intent(SignupActivity.this,MainActivity.class));
+                    startActivity(new Intent(SignupActivity.this,LoginActivity.class));
                 }else{
                     Log.i(TAG, "failure: " + task.getException());
                     Toast.makeText(SignupActivity.this, "Authentication failse.", Toast.LENGTH_SHORT).show();
                 }
             });
         });
+
+        binding.loginTxt.setOnClickListener(view -> startActivity(new Intent(SignupActivity.this,LoginActivity.class)));
     }
 }

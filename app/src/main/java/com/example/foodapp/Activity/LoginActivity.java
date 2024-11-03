@@ -36,19 +36,19 @@ public class LoginActivity extends BaseActivity {
             String email = binding.userEdt.getText().toString();
             String password = binding.passEdt.getText().toString();
             if(!email.isEmpty() && !password.isEmpty()){
-                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                        }else{
-                            Toast.makeText(LoginActivity.this, "Authentical failse.", Toast.LENGTH_SHORT).show();
-                        }
+                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, task -> {
+                    if(task.isSuccessful()){
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+//                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+//                        intent.putExtra();
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Authentical failse.", Toast.LENGTH_SHORT).show();
                     }
                 });
             }else{
                 Toast.makeText(LoginActivity.this, "Điền user và password.", Toast.LENGTH_SHORT).show();
             }
         });
+        binding.signTxt.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, SignupActivity.class)));
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -31,13 +32,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
     private ActivityMainBinding binding;
-
+    TextView nameUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        nameUser = findViewById(R.id.nameUser);
+        nameUser.setText((CharSequence) mAuth.getCurrentUser().getEmail().split("@")[0]);
         initLocation();
         initTime();
         initPrice();
@@ -59,6 +62,10 @@ public class MainActivity extends BaseActivity {
                 intent.putExtra("isSearch",true);
                 startActivity(intent);
             }
+        });
+        binding.cartBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,CartActivity.class);
+            startActivity(intent);
         });
     }
 
