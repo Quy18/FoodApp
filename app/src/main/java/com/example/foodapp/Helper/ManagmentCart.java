@@ -6,10 +6,11 @@ import android.widget.Toast;
 
 import com.example.foodapp.Domain.Foods;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class ManagmentCart {
+public class ManagmentCart implements Serializable {
     private Context context;
     private TinyDB tinyDB;
 

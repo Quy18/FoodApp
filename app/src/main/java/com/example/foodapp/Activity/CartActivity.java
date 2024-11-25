@@ -1,7 +1,9 @@
 package com.example.foodapp.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,27 +14,42 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.Adapter.CartAdapter;
+import com.example.foodapp.Domain.Foods;
 import com.example.foodapp.Helper.ChangeNumberItemsListener;
 import com.example.foodapp.Helper.ManagmentCart;
 import com.example.foodapp.R;
 import com.example.foodapp.databinding.ActivityCartBinding;
 
+import java.util.ArrayList;
+
 public class CartActivity extends BaseActivity {
     private ActivityCartBinding binding;
     private RecyclerView.Adapter adapter;
     private ManagmentCart managmentCart;
+    private ArrayList<Foods> listFood1 ;
     private double tax;
+    Button purchase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        purchase = findViewById(R.id.purchaseBtn);
         managmentCart = new ManagmentCart(this);
 
         setVariable();
         caculateCart();
         initList();
+        orderButton();
+    }
+
+    private void orderButton() {
+        purchase.setOnClickListener(view -> {
+            Intent intent = new Intent(CartActivity.this, OrderActivity.class);
+            intent.putExtra("listcart", managmentCart.getListCart());
+            intent.putExtra("totalfee", managmentCart.getTotalFee());
+            startActivity(intent);
+        });
     }
 
     private void initList() {
