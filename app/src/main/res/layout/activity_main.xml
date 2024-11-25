@@ -85,7 +85,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/grey_background"
                         android:ems="10"
-                        android:hint="Search food ..."
+                        android:hint="Tìm món ăn ..."
                         android:inputType="text"
                         android:padding="8dp"
                         android:textAlignment="center"
@@ -217,10 +217,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Today's best foods"
+                    android:text="Món ăn ngon"
                     android:textColor="@color/blue_gray"
                     android:textSize="22dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -259,12 +259,12 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:layout_marginStart="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Choose Category"
+                android:layout_weight="1"
+                android:text="Danh mục"
                 android:textColor="@color/blue_gray"
                 android:textSize="22dp"
                 android:textStyle="bold" />

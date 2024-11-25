@@ -51,19 +51,34 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/userEdt"
+                android:id="@+id/usernameEdt"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
                 android:layout_marginStart="32dp"
-                android:hint="Email address"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="User name"
+                android:inputType="textPassword"
                 android:textAlignment="center"
                 android:textColorHint="@color/blue_gray"
-                android:textSize="16sp"
-                android:ems="10"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/emailEdt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/edittext_background"
-                android:inputType="text" />
+                android:ems="10"
+                android:hint="Email address"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColorHint="@color/blue_gray"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/passEdt"
