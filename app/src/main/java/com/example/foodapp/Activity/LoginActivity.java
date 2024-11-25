@@ -33,7 +33,7 @@ public class LoginActivity extends BaseActivity {
 
     private void setVariable() {
         binding.loginBtn.setOnClickListener(view -> {
-            String email = binding.userEdt.getText().toString();
+            String email = binding.emailEdt.getText().toString();
             String password = binding.passEdt.getText().toString();
             if(!email.isEmpty() && !password.isEmpty()){
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, task -> {
