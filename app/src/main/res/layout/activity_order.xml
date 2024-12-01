@@ -56,7 +56,7 @@
                 android:background="@drawable/cat_1_background">
 
                 <EditText
-                    android:id="@+id/editTextText2"
+                    android:id="@+id/consigneeEdt"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_margin="16dp"
@@ -70,7 +70,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/editTextText4"
+                    android:id="@+id/consigneePhoneEdt"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_margin="16dp"
@@ -81,10 +81,10 @@
                     android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+                    app:layout_constraintTop_toBottomOf="@+id/consigneeEdt" />
 
                 <EditText
-                    android:id="@+id/editTextText5"
+                    android:id="@+id/addressEdt"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_margin="16dp"
@@ -96,7 +96,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+                    app:layout_constraintTop_toBottomOf="@+id/consigneePhoneEdt" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -129,19 +129,20 @@
                 android:textStyle="bold" />
 
             <RadioGroup
+                android:id="@+id/payGroupRbt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="16dp">
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/payUponRdb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Thanh toán khi nhận hàng"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/payOnlineRbt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Thanh toán trực tuyến"
@@ -253,7 +254,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/n3"
+                android:id="@+id/orderBtn"
                 style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

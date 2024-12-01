@@ -1,8 +1,11 @@
 package com.example.foodapp.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,19 +27,49 @@ import java.util.ArrayList;
 
 public class OrderActivity extends BaseActivity {
     private ActivityOrderBinding binding;
-   private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter adapter;
     private double tax;
     private ArrayList<Foods> listFood ;
     private double fee;
+    Button order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        order = findViewById(R.id.orderBtn);
+
         initList();
         setVariable();
         caculateCart();
+        oderButton();
+    }
+
+    private void oderButton() {
+        order.setOnClickListener(view -> {
+            if(binding.consigneeEdt.getText().toString().isEmpty()){
+                Toast.makeText(OrderActivity.this,"Vui lòng nhập tên người nhận.",Toast.LENGTH_SHORT).show();
+                binding.consigneeEdt.requestFocus();
+                return;
+            }
+            if(binding.consigneePhoneEdt.getText().toString().isEmpty()){
+                Toast.makeText(OrderActivity.this,"Vui lòng nhập số điện thoại người nhận.",Toast.LENGTH_SHORT).show();
+                binding.consigneePhoneEdt.requestFocus();
+                return;
+            }
+            if(binding.addressEdt.getText().toString().isEmpty()){
+                Toast.makeText(OrderActivity.this,"Vui lòng nhập địa chỉ người nhận.",Toast.LENGTH_SHORT).show();
+                binding.addressEdt.requestFocus();
+                return;
+            }
+            if(binding.payGroupRbt.getCheckedRadioButtonId() == -1){
+                Toast.makeText(OrderActivity.this,"Vui lòng chọn phương thức thanh toán.",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(OrderActivity.this,StatusActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void setVariable() {
