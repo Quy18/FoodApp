@@ -10,7 +10,6 @@ android {
     testOptions {
         animationsDisabled = true
     }
-
     defaultConfig {
         applicationId = "com.example.foodapp"
         minSdk = 27
