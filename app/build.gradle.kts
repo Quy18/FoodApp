@@ -7,6 +7,9 @@ android {
     namespace = "com.example.foodapp"
     compileSdk = 34
 
+    testOptions {
+        animationsDisabled = true
+    }
     defaultConfig {
         applicationId = "com.example.foodapp"
         minSdk = 27
@@ -43,9 +46,15 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
+    implementation(libs.espresso.idling.resource)
+
     testImplementation(libs.junit)
+    testImplementation(libs.ext.junit)
+    testImplementation(libs.espresso.core)
+    testImplementation(libs.mockito.core)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.junit.junit)
     implementation("com.google.code.gson:gson:2.9.1")
     implementation("com.google.firebase:firebase-auth:23.1.0")
     implementation("com.google.gms:google-services:4.4.2")
